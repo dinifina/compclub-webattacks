@@ -35,8 +35,8 @@ export default function RootLayout({
           playsInline
           className="fixed top-0 left-0 w-full h-full object-cover z-0"
         >
-          <source src="/crab.mp4" type="video/mp4" />
-          <source src="/crab.mp4" type="video/webm" />
+          <source src="/crab_compressed.mp4" type="video/mp4" />
+          <source src="/crab_compressed.mp4" type="video/webm" />
           Your browser does not support the video tag.
         </video>
         

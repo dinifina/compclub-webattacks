@@ -1,0 +1,32 @@
+{
+    "products": [
+        {
+            "productId": 1,
+            "productName": "Pirate Hat",
+            "image": "/piratehat.jpg",
+            "description": "A harrrdy hat to protect yer head",
+            "cost": 300
+        },
+        {
+            "productId": 2,
+            "productName": "Pirate Hook",
+            "image": "/piratehook.jpg",
+            "description": "A fearsome hook to replace yer hand",
+            "cost": 200
+        },
+        {
+            "productId": 3,
+            "productName": "Treasure map",
+            "image": "/treasuremap.jpeg",
+            "description": "The path to a bootiful bounty",
+            "cost": 50
+        },
+        {
+            "productId": 4,
+            "productName": "Pirate Flag",
+            "image": "/pirateflag.jpg",
+            "description": "Yer gotta buy one of these to get the FLAG!",
+            "cost": 1000
+        }
+    ]
+}

@@ -10,10 +10,12 @@ import { useRouter } from "next/navigation";
 export default function ContactUs() {
     const router = useRouter();
     const [ supportContent, setSupportContent ] = useState<String | null>(null);
+    const [ loadingSubmission, setLoadingSubmission ] = useState(false);
     const [ error, setError ] = useState<String | null>();
 
     const handleSubmit = async () => {
         try {
+            setLoadingSubmission(true);
             const res = await fetch(`/api/ticket`, {
                 method: 'POST',
                 headers: {
@@ -45,8 +47,12 @@ export default function ContactUs() {
                     </PageCardHeader>
                     <Divider variant="middle" flexItem />
                     <PageCardContent className="pt-6 items-start justify-center gap-5">
-                        <h3 className="font-semibold">Have a concern? Let us know below!</h3>
-                        <TextArea onChange={(e) => setSupportContent(e.target.value)} className="h-30" />
+                        {loadingSubmission ? <p>Loading submission...</p> : 
+                            <>
+                                <h3 className="font-semibold">Have a concern? Let us know below!</h3>
+                                <TextArea onChange={(e) => setSupportContent(e.target.value)} className="h-30" />
+                            </>
+                        }
                     </PageCardContent>
                     <PageCardFooter className="flex flex-col">
                         {error && <p className="text-red-500">{error}</p>}

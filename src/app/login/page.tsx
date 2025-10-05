@@ -32,7 +32,7 @@ export default function Login() {
     if (injectionPattern.test(username) || injectionPattern.test(password)) {
       setInjected(true);
     } else {
-      alert('No SQL Injection detected. Try again!');
+      alert('Incorrect username or password :(');
     }
   };
 

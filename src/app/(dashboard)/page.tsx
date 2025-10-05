@@ -2,10 +2,17 @@
 
 import { PageCard, PageCardContent, PageCardHeader, PageCardTitle } from "@/components/ui/pagecard";
 import { Divider } from "@mui/material";
+import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { useEffect } from "react";
 
 export default function Home() {
+  const handleDisableVideo = () => {
+    const videoDisabled = localStorage.getItem("videoDisabled") === "true";
+    localStorage.setItem("videoDisabled", (!videoDisabled).toString());
+    window.location.reload();
+  };
+
   useEffect(() => {
     const handleSetToken = async () => {
       const res = await fetch('/api/auth/settoken');
@@ -19,7 +26,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
+    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-10 gap-16 sm:p-20">
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
         <PageCard>
           <PageCardHeader>
@@ -33,9 +40,11 @@ export default function Home() {
             </Link>
           </PageCardContent>
         </PageCard>
+        <Button className="bg-foreground/20 hover:bg-foreground/50 transition transition-all m-auto font-bold"
+        onClick={handleDisableVideo}>
+          Click to toggle video
+        </Button>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-      </footer>
     </div>
   );
 }

@@ -26,9 +26,6 @@ export default function Login() {
       return;
     }
 
-    console.log('Username:', username, injectionPattern.test(username));
-    console.log('Password:', password, injectionPattern.test(password));
-
     if (injectionPattern.test(username) || injectionPattern.test(password)) {
       setInjected(true);
     } else {

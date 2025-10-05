@@ -15,6 +15,9 @@ const unAuthNavlinks: NavLink[] = [{
 }, {
     href: "/cart",
     name: "Your Cart"
+}, {
+  href: '/login',
+  name: 'Login'
 }];
 
 export default function NavBar({ className, ...props }: React.ComponentProps<"header">) {

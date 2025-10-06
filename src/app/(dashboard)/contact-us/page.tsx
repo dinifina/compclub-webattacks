@@ -4,7 +4,7 @@ import { PageCard, PageCardContent, PageCardFooter, PageCardHeader, PageCardTitl
 import { TextArea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Divider } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
 export default function ContactUs() {
@@ -14,20 +14,20 @@ export default function ContactUs() {
     const [ error, setError ] = useState<String | null>();
 
     useEffect(() => {
-    const originalAlert = window.alert;
+      const originalAlert = window.alert;
 
-    window.alert = function customAlert(msg) {
-      setSupportContent(process.env.NEXT_PUBLIC_HTML_INJECTION_FLAG);
-    };
+      window.alert = function customAlert(msg) {
+        setSupportContent(process.env.NEXT_PUBLIC_HTML_INJECTION_FLAG);
+      };
 
-    window.console.log = function customLog(msg) {
-      setSupportContent(process.env.NEXT_PUBLIC_HTML_INJECTION_FLAG);
-    };
+      window.console.log = function customLog(msg) {
+        setSupportContent(process.env.NEXT_PUBLIC_HTML_INJECTION_FLAG);
+      };
 
-    return () => {
-      window.alert = originalAlert;
-    };
-  }, []);
+      return () => {
+        window.alert = originalAlert;
+      };
+    }, []);
 
     const handleSubmit = async () => {
         try {

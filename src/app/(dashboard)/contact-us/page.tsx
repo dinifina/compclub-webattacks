@@ -18,11 +18,11 @@ export default function ContactUs() {
       const originalConsoleLog = window.console.log;
 
       window.alert = function customAlert(msg) {
-        setSupportContent(process.env.NEXT_PUBLIC_HTML_INJECTION_FLAG);
+        setSupportContent(process.env.NEXT_PUBLIC_HTML_INJECTION_FLAG ?? '');
       };
 
       window.console.log = function customLog(msg) {
-        setSupportContent(process.env.NEXT_PUBLIC_HTML_INJECTION_FLAG);
+        setSupportContent(process.env.NEXT_PUBLIC_HTML_INJECTION_FLAG ?? '');
       };
 
       return () => {

@@ -25,7 +25,6 @@ export default function ContactUs() {
     };
 
     return () => {
-      // restore original alert when component unmounts
       window.alert = originalAlert;
     };
   }, []);

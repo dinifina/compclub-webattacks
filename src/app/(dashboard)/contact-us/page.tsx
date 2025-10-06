@@ -4,7 +4,7 @@ import { PageCard, PageCardContent, PageCardFooter, PageCardHeader, PageCardTitl
 import { TextArea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Divider } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 export default function ContactUs() {
@@ -56,42 +56,35 @@ export default function ContactUs() {
         }
     }
     return (
-      <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-        <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-          <PageCard>
-            <PageCardHeader>
-              <PageCardTitle>Contact Us</PageCardTitle>
-            </PageCardHeader>
-            <Divider variant="middle" flexItem />
-            <PageCardContent className="pt-6 items-start justify-center gap-5">
-              {loadingSubmission ? (
-                <p>Loading submission...</p>
-              ) : (
-                <>
-                  <h3 className="font-semibold">
-                    Have a concern? Let us know below!
-                  </h3>
-                  <TextArea
-                    onChange={(e) => setSupportContent(e.target.value)}
-                    className="h-30"
-                  />
-                </>
-              )}
-              <div className="flex flex-col items-start gap-2 w-full">
-                <h1 className="font-bold">Preview: </h1>
-                <div
-                  className="w-xl"
-                  dangerouslySetInnerHTML={{ __html: supportContent ?? '' }}
-                />
-                <br />
-              </div>
-            </PageCardContent>
-            <PageCardFooter className="flex flex-col">
-              {error && <p className="text-red-500">{error}</p>}
-              <Button onClick={handleSubmit}>Submit</Button>
-            </PageCardFooter>
-          </PageCard>
-        </main>
-      </div>
-    );
+        <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
+            <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
+                <PageCard>
+                    <PageCardHeader>
+                        <PageCardTitle>Contact Us</PageCardTitle>
+                    </PageCardHeader>
+                    <Divider variant="middle" flexItem />
+                    <PageCardContent className="pt-6 items-start justify-center gap-5">
+                        {loadingSubmission ? <p>Loading submission...</p> : 
+                            <>
+                                <h3 className="font-semibold">Have a concern? Let us know below!</h3>
+                                <TextArea onChange={(e) => setSupportContent(e.target.value)} className="h-30" />
+                            </>
+                        }
+                        <div className="flex flex-col items-start gap-2 w-full">
+                            <h1 className="font-bold">Preview: </h1>
+                            <div
+                              className="w-xl"
+                              dangerouslySetInnerHTML={{ __html: supportContent ?? '' }}
+                            />
+                          <br />
+                        </div>
+                    </PageCardContent>
+                    <PageCardFooter className="flex flex-col">
+                        {error && <p className="text-red-500">{error}</p>}
+                        <Button onClick={handleSubmit}>Submit</Button>
+                    </PageCardFooter>
+                </PageCard>
+            </main>
+        </div>
+    )
 }

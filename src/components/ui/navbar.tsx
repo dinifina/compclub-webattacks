@@ -4,6 +4,10 @@ import pirateFont from "@/fonts";
 import { cn } from "@/lib/utils";
 
 const unAuthNavlinks: NavLink[] = [{
+    href: "/search",
+    name: "Search Products"
+},
+{
     href: "/store",
     name: "Store"
 }, {

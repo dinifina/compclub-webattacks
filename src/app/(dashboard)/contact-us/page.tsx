@@ -15,6 +15,7 @@ export default function ContactUs() {
 
     useEffect(() => {
       const originalAlert = window.alert;
+      const originalConsoleLog = window.console.log;
 
       window.alert = function customAlert(msg) {
         setSupportContent(process.env.NEXT_PUBLIC_HTML_INJECTION_FLAG);
@@ -26,6 +27,7 @@ export default function ContactUs() {
 
       return () => {
         window.alert = originalAlert;
+        window.console.log = originalConsoleLog;
       };
     }, []);
 
